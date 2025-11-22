@@ -507,60 +507,68 @@
     z-index: 5;
 }
 
-/* --- ৩. নিচের নীল ঢেউ (Wave) --- */
-.wave-container {
+/* --- ঢেউয়ের কন্টেইনার (এটি ওপরের সেকশনের ঠিক নিচে বসবে) --- */
+    .wave-container-bottom {
         position: relative;
-        max-width: 600px;
-        margin: 0 auto;
-        
-        height: 150px; /* কন্টেইনারের উচ্চতা */
+        width: 100%;
+        height: 150px; /* ঢেউয়ের উচ্চতা */
         overflow: hidden;
-        background: linear-gradient(to bottom, #FFF59D); /* ব্যাকগ্রাউন্ড আকাশ */
+        line-height: 0;
+        background-color: transparent; /* এর নিজের কোনো ব্যাকগ্রাউন্ড কালার নেই */
+        margin-top: -1px; /* মাঝের সূক্ষ্ম ফাঁাকা দাগ দূর করতে */
     }
 
     /* সব ঢেউয়ের সাধারণ স্টাইল */
-    .wave {
+    .wave-b {
         position: absolute;
         bottom: 0;
         left: 0;
         width: 200%;
         height: 100%;
-        background-repeat: repeat-x;
-        background-position: 0 bottom;
+        /* 🔥 এই অংশটিই ঢেউকে উল্টে নিচের দিক সমান করছে 🔥 */
         transform-origin: center bottom;
+        transform: scaleY(-1); 
     }
 
-    /* --- স্তর ১: সবার পেছনের ঢেউ (ধীর ও ঝাপসা) --- */
-    .wave1 {
-        opacity: 0.5;
-        animation: moveWave 18s linear infinite;
+    /* --- স্তর ১ (পেছনের ঢেউ - সবচেয়ে হালকা) --- */
+    .wave1-b {
+        opacity: 0.4;
+        fill: #4facfe; /* হালকা নীল */
+        animation: moveWaveBottom 18s linear infinite;
         z-index: 1;
-        fill: #008aff; /* গাঢ় নীল */
     }
 
-    /* --- স্তর ২: মাঝের ঢেউ --- */
-    .wave2 {
-        opacity: 0.7;
-        animation: moveWave 12s linear infinite reverse; /* উল্টো দিকে চলবে */
+    /* --- স্তর ২ (মাঝের ঢেউ) --- */
+    .wave2-b {
+        opacity: 0.6;
+        fill: #00f2fe; /* উজ্জ্বল সায়ান */
+        animation: moveWaveBottom 12s linear infinite reverse; /* উল্টো দিকে চলবে */
         z-index: 2;
-        fill: #00b7ff; /* মাঝারি নীল */
-        height: 110%; /* একটু বড় দেখাবে */
+        height: 115%; /* একটু উঁচু */
     }
 
-    /* --- স্তর ৩: সামনের ঢেউ (দ্রুত ও উজ্জ্বল) --- */
-    .wave3 {
-        opacity: 1;
-        animation: moveWave 9s linear infinite;
+    /* --- স্তর ৩ (সামনের ঢেউ - গাঢ় ও স্পষ্ট) --- */
+    .wave3-b {
+        opacity: 0.9;
+        fill: #00c6fb; /* গাঢ় আকাশী */
+        animation: moveWaveBottom 9s linear infinite;
         z-index: 3;
-        fill: #4df4ff; /* উজ্জ্বল সায়ান */
         height: 105%;
     }
     
-    /* অ্যানিমেশন */
-    @keyframes moveWave {
-        0% { transform: translateX(0) translateZ(0) scaleY(1); }
-        50% { transform: translateX(-25%) translateZ(0) scaleY(1.05); } /* মাঝে একটু উঁচু হবে */
-        100% { transform: translateX(-50%) translateZ(0) scaleY(1); }
+    /* অ্যানিমেশন (উল্টানো অবস্থায় চলার জন্য) */
+    @keyframes moveWaveBottom {
+        /* scaleY(-1) রাখা জরুরি যাতে চলার সময়ও উল্টানো থাকে */
+        0% { transform: translateX(0) scaleY(-1); }
+        50% { transform: translateX(-25%) scaleY(-1.1); } /* মাঝে একটু ফুলে উঠবে */
+        100% { transform: translateX(-50%) scaleY(-1); }
+    }
+
+    /* নিচের সেকশন (যাতে বোঝা যায় ঢেউটি এর উপরে আছে) */
+    .content-section {
+        padding: 50px;
+        background-color: white;
+        text-align: center;
     }
 
 /* --- ৪. নিচের বাটন (Call to Action) --- */
@@ -713,18 +721,22 @@
 
         <img src="https://png.pngtree.com/png-vector/20250215/ourmid/pngtree-action-camera--gopro--with-transparency-background-6-png-image_15468607.png" alt="Camera Front" class="card-camera-img">
 
-        <div class="wave-container">
-    <svg class="wave wave1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <div class="wave-container-bottom">
+    <svg class="wave-b wave1-b" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
         <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
     </svg>
-    
-    <svg class="wave wave2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+    <svg class="wave-b wave2-b" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
         <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
     </svg>
+    <svg class="wave-b wave3-b" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+    </svg>
+</div>
 
-    <svg class="wave wave3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
-    </svg>
+<div class="content-section">
+    <h2>স্বাগতম!</h2>
+    <p>এখন ঢেউয়ের নিচের অংশ সমান এবং এটি স্বাভাবিক পানির মতো দেখাচ্ছে।</p>
+    <p>এই সেকশনটি ঢেউয়ের ঠিক নিচে শুরু হয়েছে।</p>
 </div>
     </div>
     <br>
