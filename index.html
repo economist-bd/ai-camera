@@ -436,6 +436,110 @@
         opacity: 0;   /* শেষে মিলিয়ে যাবে */
     }
 }
+       /* --- সেকশন কন্টেইনার (সবুজ ব্যাকগ্রাউন্ড) --- */
+.feature-section-wrapper {
+    background-color: #9CCC65; /* হালকা সবুজ */
+    padding: 40px 15px;
+    text-align: center;
+    position: relative;
+}
+
+/* --- ১. উপরের বাটন স্টাইল হেডার --- */
+.feature-header-box {
+    background: linear-gradient(90deg, #00C6FF, #0072FF);
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 8px;
+    border: 3px solid #fff;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6); /* লাল আভা/Glow */
+    margin-bottom: -25px; /* কার্ডের ওপর ভাসার জন্য */
+    position: relative;
+    z-index: 10;
+}
+
+.feature-header-box h2 {
+    color: #fff;
+    font-size: 1.4rem;
+    margin: 0;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* --- ২. হলুদ কার্ড ডিজাইন --- */
+.yellow-card {
+    background-color: #FFF59D; /* হলুদ রঙ */
+    border-radius: 20px 20px 0 0;
+    padding: 50px 20px 0 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- লিস্ট আইটেম (লাল টিক চিহ্ন সহ) --- */
+.feature-list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.tick-icon {
+    min-width: 25px;
+    height: 25px;
+    color: red; /* লাল টিক */
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 1.2;
+}
+
+/* --- ক্যামেরার ছবি --- */
+.card-camera-img {
+    display: block;
+    width: 70%;
+    max-width: 300px;
+    margin: 20px auto 10px; /* ঢেউয়ের একটু উপরে থাকবে */
+    position: relative;
+    z-index: 5;
+}
+
+/* --- ৩. নিচের নীল ঢেউ (Wave) --- */
+.wave-container {
+    position: relative;
+    width: 100%;
+    line-height: 0; /* গ্যাপ রিমুভ করার জন্য */
+}
+.wave-svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 60px;
+}
+.wave-shape {
+    fill: #2962FF; /* নীল ঢেউ */
+}
+
+/* --- ৪. নিচের বাটন (Call to Action) --- */
+.bottom-cta-box {
+    margin-top: 30px;
+    display: inline-block;
+    background: linear-gradient(90deg, #00C6FF, #0072FF);
+    padding: 12px 25px;
+    border-radius: 5px;
+    border: 3px solid #fff;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
     </style>
 </head>
 <body>
@@ -520,6 +624,64 @@
         </ul>
         <img src="h.jpg" style="width:100%; border-radius:15px; margin-top:20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
     </div>
+
+    <section class="feature-section-wrapper">
+    
+    <div class="feature-header-box">
+        <h2>কেন এই ক্যামেরা কিনবেন?</h2>
+    </div>
+
+    <div class="yellow-card">
+        
+        <div class="feature-list-item">
+            <div class="tick-icon">✔</div>
+            <div>
+                <strong>বাজেট ফ্রেন্ডলি:</strong> মাত্র ২৫০০ টাকায় এমন মানের ক্যামেরা আর কোথাও পাবেন না।
+            </div>
+        </div>
+
+        <div class="feature-list-item">
+            <div class="tick-icon">✔</div>
+            <div>
+                <strong>4k / 30fps ভিডিও:</strong> এবং ছবি তুলতে পারবেন ১৬ মেগাপিক্সেল কোয়ালিটি। ইউটিউব, ফেসবুক বা টিকটকের জন্য একদম পারফেক্ট।
+            </div>
+        </div>
+
+        <div class="feature-list-item">
+            <div class="tick-icon">✔</div>
+            <div>
+                <strong>পোর্টেবল ও হালকা:</strong> সহজে ব্যাগে রাখা যায়, ভ্রমণ বা আউটডোরে বহন করা ঝামেলাহীন।
+            </div>
+        </div>
+
+        <div class="feature-list-item">
+            <div class="tick-icon">✔</div>
+            <div>
+                <strong>ওয়াটারপ্রুফ কেসিং:</strong> বৃষ্টি বা পানির নিচেও শুট করতে পারবেন।
+            </div>
+        </div>
+
+        <div class="feature-list-item">
+            <div class="tick-icon">✔</div>
+            <div>
+                <strong>শুরুকারীদের জন্য সেরা:</strong> নতুন ইউটিউবার বা ব্লগারদের জন্য এটা হতে পারে প্রথম বিনিয়োগ।
+            </div>
+        </div>
+
+        <img src="c.jpg" alt="Camera Front" class="card-camera-img">
+
+        <div class="wave-container">
+            <svg class="wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path class="wave-shape" d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+            </svg>
+        </div>
+    </div>
+    <br>
+    <a href="#order" class="bottom-cta-box">
+        🎯 আপনার কেন এই ক্যামেরা প্রয়োজন
+    </a>
+
+</section>
 
     <div class="content-section reveal">
         <h3 class="section-title reveal" style="display:block; text-align:center;">কি কি সুবিধা পাচ্ছেন!</h3>
