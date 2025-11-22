@@ -507,7 +507,25 @@
     z-index: 5;
 }
 
-/* --- ঢেউয়ের কন্টেইনার (এটি ওপরের সেকশনের ঠিক নিচে বসবে) --- */
+{
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background-color: #f4f4f4;
+    }
+
+    /* উদাহরণের জন্য একটি উপরের সেকশন */
+    .top-section {
+        background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 2rem;
+    }
+
+    /* --- ঢেউয়ের কন্টেইনার (এটি ওপরের সেকশনের ঠিক নিচে বসবে) --- */
     .wave-container-bottom {
         position: relative;
         width: 100%;
@@ -570,7 +588,6 @@
         background-color: white;
         text-align: center;
     }
-
 /* --- ৪. নিচের বাটন (Call to Action) --- */
 .bottom-cta-box {
     margin-top: 30px;
